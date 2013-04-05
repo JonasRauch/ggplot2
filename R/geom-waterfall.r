@@ -35,7 +35,7 @@ GeomWaterfall <- proto(Geom, {
     dataS1 <- transform(dataR, x = xmin, xend = xmax + !lastgroup, yend = y, colour = ifelse(lastgroup, NA, segment_colour))
     dataS2 <- transform(dataR, x = xmin, xend = xmax, y = ymin, yend = ymin, colour = ifelse(firstgroup, NA, segment_colour))
     gS <- GeomSegment$draw(rbind(dataS1, dataS2), scales, coordinates)
-    dataT <- transform(data, label=format(ifelse(is.na(deltay), y, deltay)), colour=text_colour, size=text_size, fontface=ifelse(is.na(deltay), net_fontface, fontface), vjust = ifelse(type=="out" &! is.na(type), 1.1 + vjust, - vjust - 0.3))
+    dataT <- transform(data, label=format(ifelse(is.na(deltay), y, deltay)), colour=text_colour, size=text_size, fontface=ifelse(is.na(deltay), net_fontface, fontface), vjust = ifelse(type=="out" &! is.na(type), 1.2 + vjust, - vjust - 0.3))
     gT <- GeomText$draw(dataT, scales, coordinates)
     gList(gR, gS, gT)
   }
